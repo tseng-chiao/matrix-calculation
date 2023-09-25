@@ -1,4 +1,5 @@
 # Matrix-calculation
 
-請輸入一個3*3的方陣,我會印出你輸入的矩陣,並印出你的反矩陣,
-以及兩者相乘的結果。
+Please input a 3 times 3 matrix. I'll print out your matrix and the inverse matrix. 
+Also, the product of your matrix and your inverse matrix will be printed. 
+
