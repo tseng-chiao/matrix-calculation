@@ -1,0 +1,59 @@
+#include<stdio.h>;
+#include<stdlib.h>;
+void multiply(float a[3][3],float b[3][3]) //兩個值都要定義型態,使用void較int 不用return回傳數字
+{
+int i,j ;
+for(i=0;i<3;i++)
+	{
+	printf("\n");
+	for(j=0;j<3;j++)
+		{
+		printf("%10.3f\t",a[i][0]*b[0][j]+a[i][1]*b[1][j]+a[i][2]*b[2][j]);
+		}
+	}
+}
+
+int main()
+{
+float a[3][3],b[3][3];
+int i,j;
+printf("請輸入3*3的方陣：\n");
+for(i=0;i<3;i++)
+	{
+	for(j=0;j<3;j++)
+		{
+		scanf_s("%f", &a[i][j]);
+		}
+	printf("\n");
+	}
+printf("你輸入的矩陣是：\n");
+for(i=0;i<3;i++)
+	{
+	for(j=0;j<3;j++)
+		{
+		printf("%10.3f\t",a[i][j]); //正負10為向左或向右對齊
+		}
+	printf("\n");
+	}
+float deter=0;
+for(i =0; i<3; i++)
+	{	
+	deter = deter + a[0][i]* (a[1][(i+1)%3] * a[2][(i+2)%3]-a[1][(i+2)%3]*a[2][(i+1)%3]);
+	}
+
+printf("\n你的反矩陣為：");
+for(j=0; j<3; j++)
+	{
+	printf("\n");
+	for(i=0; i<3; i++)
+		{
+		b[j][i] = (a[(i+1)%3][(j+1)%3]*a[(i+2)%3][(j+2)%3]-a[(i+1)%3][(j+2)%3]*a[(i+2)%3][(j+1)%3])/deter;
+		printf("%10.3f\t",b[j][i]);
+		}
+	}
+printf("\n\n矩陣反矩陣相乘為：");
+multiply(a,b); //注意函數的寫法,括號內可直接包含兩變數
+printf("\n");
+system("pause");
+return 0;
+}
